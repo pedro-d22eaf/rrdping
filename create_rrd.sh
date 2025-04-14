@@ -16,13 +16,21 @@ function createrrd() {
     fi
 
     # Create the RRD file
+    # 24h with 1 minute intervals AVERAGE
+    #
     rrdtool create "$RRD_FILE" \
         --step $STEP \
-        DS:rtt:GAUGE:120:0:10 \
-        DS:loss:GAUGE:120:0:100 \
-        RRA:AVERAGE:0.5:1:1440 \
-        RRA:MIN:0.5:180:336 \
-        RRA:MAX:0.5:180:336 
+        DS:rtt:GAUGE:5m:0:200 \
+        DS:loss:GAUGE:5m:0:100 \
+        RRA:AVERAGE:0.5:1m:2d \
+        RRA:MIN:0.5:15m:2d \
+        RRA:MAX:0.5:15m:2d \
+        RRA:MIN:0.5:1h:30d \
+        RRA:MAX:0.5:1h:30d \
+        RRA:AVERAGE:0.5:1h:30d \
+        RRA:MIN:0.5:1d:1y \
+        RRA:MAX:0.5:1d:1y \
+        RRA:AVERAGE:0.5:1d:1y
 
     # Check if the RRD file was created successfully
     if [ $? -eq 0 ]; then
