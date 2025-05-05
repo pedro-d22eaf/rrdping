@@ -1,6 +1,7 @@
-#!/bin/bash
+#!/usr/bin/bash
 
-. config.sh
+SCRIPT_DIR=$(dirname "$0")
+source ${SCRIPT_DIR}/config.sh
 
 # Check if the target list file is provided
 if [ -z "$1" ]; then

@@ -1,6 +1,7 @@
 #!/bin/bash
 
-. config.sh
+SCRIPT_DIR=$(dirname "$0")
+source ${SCRIPT_DIR}/config.sh
 
 echo "Generating PNG files from RRD files..."
 
