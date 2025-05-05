@@ -34,3 +34,8 @@ sudo systemctl enable rrdping.service
 reboot
 ```
 
+*generate PNGs*
+
+```
+./rrdping/generate_pngs.sh
+```
