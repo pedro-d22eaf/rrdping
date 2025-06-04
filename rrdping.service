@@ -1,0 +1,10 @@
+ [Unit]
+ Description=rrdping
+ After=multi-user.target
+
+ [Service]
+ Type=idle
+ ExecStart=/apps/rrdping/update_rrd.sh /apps/rrdping/ping-target.cfg
+ 
+ [Install]
+ WantedBy=multi-user.target
